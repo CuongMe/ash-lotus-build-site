@@ -1,0 +1,229 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === BASE === */
+body {
+  font-family: "Rubik Dirt", cursive;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === HOVER ZONE FOR NAV === */
+.hover-zone {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 60px;
+  z-index: 998;
+  background: transparent;
+}
+
+/* === TOP NAV BAR === */
+.top-nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+  z-index: 999;
+}
+.hover-zone:hover + .top-nav,
+.top-nav:hover {
+  transform: translateY(0);
+}
+
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.nav-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.nav-avatar span {
+  color: #eee;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.top-nav a {
+  margin-left: 20px;
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.top-nav a:hover {
+  color: #ff3860;
+}
+
+/* === VAULT BOY ICON === */
+.vaultboy-wrapper {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  transition: top 0.25s ease;
+}
+.hover-zone:hover + .top-nav + .vaultboy-wrapper,
+.top-nav:hover + .vaultboy-wrapper {
+  top: 40px;
+}
+.vaultboy-icon {
+  width: 64px;
+  transform-origin: 30% 40%;
+  animation: vaultboyWave 1.8s ease-in-out infinite;
+}
+@keyframes vaultboyWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+}
+
+/* === INSTALL PAGE MAIN STYLING === */
+main {
+  padding: 120px 20px 80px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ff3860;
+  text-shadow: 0 0 4px #000;
+}
+main p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+
+/* === INSTALL SECTION BOX === */
+.install-section {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,255,102,0.1);
+  color: #ddd;
+  font-family: 'Fira Mono', monospace;
+  padding: 30px 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* === HEADINGS INSIDE INSTALL === */
+.install-section h3,
+.install-section h4 {
+  color: #00ff66;
+  text-shadow: 0 0 3px #00ff66;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+/* === LISTS === */
+.install-section ol,
+.install-section ul {
+  margin-left: 1.5rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+.install-section li {
+  margin-bottom: 10px;
+}
+
+/* === LINKS === */
+.install-section a {
+  color: #00ff66;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.install-section a:hover {
+  color: #0f0;
+}
+
+/* === NOTE BOX === */
+.install-section .note {
+  font-style: italic;
+  color: #ffcc00;
+  background: #1a1a1a;
+  padding: 12px 16px;
+  border-left: 4px solid #ffcc00;
+  border-radius: 4px;
+  margin: 25px 0;
+}
+
+/* === CHECKLIST === */
+.install-section .checklist {
+  list-style: none;
+  padding-left: 0;
+}
+.install-section .checklist li::before {
+  content: "✔ ";
+  color: #00ff66;
+  margin-right: 8px;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #888;
+  border-top: 1px solid #333;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  main h2 {
+    font-size: 2rem;
+  }
+
+  .install-section {
+    padding: 20px 16px;
+  }
+
+  .install-section h3,
+  .install-section h4 {
+    font-size: 1.2rem;
+  }
+
+  .install-section .note {
+    font-size: 0.95rem;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+  }
+
+  .top-nav a {
+    margin: 5px 0;
+    font-size: 0.85rem;
+  }
+
+  .nav-avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .vaultboy-icon {
+    width: 48px;
+  }
+}

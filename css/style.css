@@ -1,0 +1,286 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Rubik Dirt", cursive;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HOVER ZONE (invisible strip to trigger nav) */
+/* Hover zone — slightly overlaps nav bar for smooth transition */
+.hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;         /* overlaps nav bar (60px) + 20px buffer */
+  z-index: 998;         /* BELOW the nav bar */
+  background: transparent;
+  pointer-events: auto; /* allow hover */
+}
+
+/* Nav bar — higher z-index and clickable */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+  z-index: 999;
+}
+
+
+/* Reveal nav on hover of zone or nav itself */
+.hover-zone:hover + .top-nav,
+.top-nav:hover {
+  transform: translateY(0);
+}
+
+/* AVATAR + USERNAME */
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* pushes links to the right */
+}
+
+.nav-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.nav-avatar span {
+  color: #eee;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* NAV LINKS */
+.top-nav a {
+  margin-left: 20px;
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.top-nav a:hover {
+  color: #ff3860;
+}
+
+/* Vault Boy icon in the top‑right, waving his hand */
+/* 1) Wrapper sits fixed in the corner and moves vertically */
+.vaultboy-wrapper {
+  position: fixed;
+  top: 12px;        /* starts up high */
+  right: 12px;
+  z-index: 1001;
+  transition: top 0.25s ease;
+}
+
+/* 2) When nav is revealed, push Vault Boy down */
+.hover-zone:hover + .top-nav + .vaultboy-wrapper,
+.top-nav:hover + .vaultboy-wrapper {
+  top: 40px;       /* adjust to exactly nav’s height + initial offset */
+}
+
+/* 3) Keep the waving animation on the inner image */
+.vaultboy-icon {
+  width: 64px;
+  transform-origin: 30% 40%;
+  animation: vaultboyWave 1.8s ease-in-out infinite;
+}
+
+@keyframes vaultboyWave {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(45deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+/* HEADER BACKGROUND + SCANLINE */
+header {
+  position: relative;
+  height: 105vh;
+  background: url("../images/ashlotus-banner.png") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* green scanner beam */
+header::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 5vh;
+  height: 20vh;
+  box-shadow: 0 -10vh 20vh #0c0;
+  animation: wave 5s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* CRT scanlines */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 2px,
+      rgba(0,255,0,0.03) 2px,
+      rgba(0,255,0,0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* scanner animation */
+@keyframes wave {
+  0% {
+    top: -100vh;
+    box-shadow: 0 -10vh 20vh #0c0;
+  }
+  48%, 52% {
+    box-shadow: 0 -10vh 20vh #090;
+  }
+  50% {
+    box-shadow: 0 -10vh 20vh #060;
+  }
+  100% {
+    top: 200vh;
+    box-shadow: 0 -10vh 20vh #0c0;
+  }
+}
+
+/* PIP‑BOY OVERLAY TEXT */
+.pipboy-overlay {
+  position: absolute;
+  top: 20%; left: 10%; right: 10%;
+  background: transparent;
+  color: #00ff66;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-shadow: 0 0 2px #0f0, 0 0 5px #090;
+  mix-blend-mode: screen;
+  animation: pipPulse 4s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes pipPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+
+/* blinking cursor */
+.pipboy-overlay p:last-child::after {
+  content: "_";
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Header button group */
+.header-buttons {
+  position: absolute;
+  top: 150%; /* try 88%, 90%, etc. until you're happy */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  z-index: 6;
+}
+
+/* Individual buttons */
+.header-button {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.3rem;
+  color: #00ff66;
+  text-shadow: 0 0 2px #0f0, 0 0 5px #090;
+  mix-blend-mode: screen;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid rgba(0,255,102,0.6);
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Icon spacing */
+.header-button i {
+  margin-right: 0.6rem;
+  font-size: 1.2em;
+}
+
+/* Hover effect */
+.header-button:hover {
+  background: rgba(0,255,102,0.2);
+  color: #ffffff;
+}
+
+/* MAIN CONTENT */
+main {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ff3860;
+}
+
+main p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+a.button {
+  background: #ff3860;
+  padding: 16px 36px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease;
+}
+
+a.button:hover {
+  transform: scale(1.05);
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #888;
+  font-size: 0.75rem;
+  border-top: 1px solid #333;
+}

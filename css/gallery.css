@@ -1,0 +1,376 @@
+/* ========================================
+   RESET & BASE
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Rubik Dirt", cursive;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   NAVIGATION & HEADER
+======================================== */
+.hover-zone {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 60px;
+  z-index: 998;
+  background: transparent;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+  z-index: 999;
+}
+
+.hover-zone:hover + .top-nav,
+.top-nav:hover {
+  transform: translateY(0);
+}
+
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.nav-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.nav-avatar span {
+  color: #eee;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.top-nav a {
+  margin-left: 20px;
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.top-nav a:hover {
+  color: #ff3860;
+}
+
+/* ========================================
+   VAULTBOY ICON
+======================================== */
+.vaultboy-wrapper {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  transition: top 0.25s ease;
+}
+
+.hover-zone:hover + .top-nav + .vaultboy-wrapper,
+.top-nav:hover + .vaultboy-wrapper {
+  top: 40px;
+}
+
+.vaultboy-icon {
+  width: 64px;
+  transform-origin: 30% 40%;
+  animation: vaultboyWave 1.8s ease-in-out infinite;
+}
+
+@keyframes vaultboyWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+}
+
+/* ========================================
+   GALLERY CONTAINER
+======================================== */
+main.gallery {
+  padding: 120px 20px 80px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+main.gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff3860;
+  text-shadow: 0 0 4px #000;
+}
+
+main.gallery .gallery-intro {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+/* ========================================
+   FULL VIEW IMAGE
+======================================== */
+.full-view {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  margin: 20px auto 30px;
+  padding: 10px;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  aspect-ratio: 16/9;
+}
+
+.full-view img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  filter: blur(12px);
+  opacity: 0;
+  animation: blurIn 0.8s ease forwards;
+}
+
+@keyframes blurIn {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   THUMBNAILS
+======================================== */
+.preview-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.preview-list a {
+  width: 18vw;
+  max-width: 80px;
+  aspect-ratio: 1;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  overflow: hidden;
+  background: #222;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s ease;
+}
+
+.preview-list a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+/* ========================================
+   LOADER BAR
+======================================== */
+.loader-bar {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #222;
+  border: 1px solid #00ff66;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,255,102,0.4);
+}
+
+.progress-line {
+  width: 0%;
+  height: 100%;
+  background: #00ff66;
+  box-shadow: 0 0 10px #00ff66 inset;
+  transition: none;
+}
+
+.loader-text {
+  margin-top: 6px;
+  color: #00ff66;
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ========================================
+   UPLOAD FORM
+======================================== */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #111;
+  color: #eee;
+  font-family: "Rubik Dirt", cursive;
+  font-size: 1.1rem;
+  border: 2px solid #00ff66;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px #00ff66;
+}
+
+.file-label:hover {
+  background: #00ff66;
+  color: #111;
+  box-shadow: 0 0 12px #00ff66;
+}
+
+.file-label input[type="file"] {
+  display: none;
+}
+
+.upload-form input[type="text"],
+.upload-form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-family: "Fira Mono", monospace;
+  background: #1a1a1a;
+  color: #f1f1f1;
+  border: 1px solid #333;
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px #000;
+}
+
+.upload-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-button {
+  padding: 12px 30px;
+  background: #00ff66;
+  color: #111;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px #00ff66;
+}
+
+.submit-button:hover {
+  background: #0f0;
+  box-shadow: 0 0 16px #00ff66;
+}
+
+.form-warnings {
+  font-size: 0.85rem;
+  color: #ff5555;
+  margin-top: -5px;
+  text-align: center;
+  font-family: 'Fira Mono', monospace;
+}
+
+.form-warnings p {
+  margin: 4px 0;
+}
+
+.submission-limit-warning.hidden {
+  display: none;
+}
+.upload-success {
+  margin-top: 20px;
+  color: #00ff66;
+  font-size: 1rem;
+  font-family: 'Fira Mono', monospace;
+  background: #112;
+  padding: 12px 20px;
+  border-left: 4px solid #00ff66;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00ff66;
+  transition: opacity 0.3s ease;
+}
+
+.upload-success.hidden {
+  display: none;
+}
+.uploaded-name {
+  font-size: 0.9rem;
+  color: #00ff66;
+  font-family: 'Fira Mono', monospace;
+  margin-top: 8px;
+}
+/* ========================================
+   FOOTER
+======================================== */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #888;
+  border-top: 1px solid #333;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 600px) {
+  .full-view img {
+    max-height: 60vh;
+  }
+}

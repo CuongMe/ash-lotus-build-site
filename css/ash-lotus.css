@@ -1,0 +1,330 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Rubik Dirt", cursive;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HOVER ZONE (invisible strip to trigger nav) */
+.hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 998;
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* TOP NAV BAR */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  transform: translateY(-100%);
+  transition: transform 0.25s ease;
+  z-index: 999;
+}
+.hover-zone:hover + .top-nav,
+.top-nav:hover {
+  transform: translateY(0);
+}
+
+/* AVATAR + USERNAME */
+.nav-avatar {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.nav-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.nav-avatar span {
+  color: #eee;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* NAV LINKS */
+.top-nav a {
+  margin-left: 20px;
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.top-nav a:hover {
+  color: #ff3860;
+}
+
+/* VAULT BOY ICON */
+.vaultboy-wrapper {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  transition: top 0.25s ease;
+}
+.hover-zone:hover + .top-nav + .vaultboy-wrapper,
+.top-nav:hover + .vaultboy-wrapper {
+  top: 40px;
+}
+.vaultboy-icon {
+  width: 64px;
+  transform-origin: 30% 40%;
+  animation: vaultboyWave 1.8s ease-in-out infinite;
+}
+@keyframes vaultboyWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+}
+
+/* MAIN CONTENT AREA */
+main {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ff3860;
+}
+main p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #888;
+  border-top: 1px solid #333;
+}
+
+/* CTA BUTTON */
+a.button {
+  background: #ff3860;
+  padding: 16px 36px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease;
+}
+a.button:hover {
+  transform: scale(1.05);
+}
+
+/* === MODLIST ACCORDION === */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 60px auto 100px;
+  max-width: 1000px;
+  font-family: 'Fira Mono', monospace;
+  color: #00ff66;
+  text-shadow: 0 0 2px #0f0, 0 0 4px #090;
+  padding: 0 20px;
+}
+.accordion {
+  background: #0e0e0e;
+  border: 1px solid #00ff66;
+  box-shadow: 0 0 5px rgba(0, 255, 102, 0.2);
+}
+.accordion-header {
+  padding: 14px 18px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: rgba(0, 255, 102, 0.05);
+  color: #00ff66;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+.accordion-header:hover {
+  background: rgba(0, 255, 102, 0.1);
+}
+.accordion-header .plus {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+.accordion-header.active .plus {
+  transform: rotate(45deg);
+}
+.accordion-content {
+  display: none;
+  padding: 12px 20px;
+  background: #111;
+  border-top: 1px solid #00ff66;
+}
+.accordion-content.show {
+  display: block;
+}
+.mod-item {
+  padding: 6px 0;
+  border-bottom: 1px dashed #00ff66;
+  color: #b5ffcc;
+}
+
+/* Latest Update Section */
+.update-section {
+  margin-top: 60px;
+  text-align: center;
+}
+.update-title {
+  font-size: 2.2rem;
+  color: #73ff9c;
+  font-family: 'Fira Mono', monospace;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px #00ff66, 0 0 10px #090;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.update-title .icon {
+  font-size: 2.2rem;
+  margin-right: 10px;
+}
+.update-section p {
+  color: #b6fcb6;
+  font-size: 1.2rem;
+  font-family: 'Fira Mono', monospace;
+  text-shadow: 0 0 2px #0f0;
+  margin-bottom: 30px;
+}
+
+/* Collapsible Button and Content */
+.collapsible-btn {
+  background: none;
+  color: #39ff14;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+  padding: 16px 0;
+  text-shadow: 0 0 5px #0f0;
+  transition: color 0.2s;
+  outline: none;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.collapsible-btn::after {
+  content: " ▼";
+  font-size: 1.1em;
+  color: #39ff14;
+  transition: transform 0.3s;
+}
+.collapsible-btn.active::after {
+  content: " ▲";
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(.6, .4, .2, 1);
+  background: #111;
+  border-radius: 4px;
+  margin: 0 auto 24px;
+}
+.collapsible-content.open {
+  max-height: 500px; /* or large enough for your content */
+  padding: 20px 0;
+}
+
+.changelog-entry {
+  margin: 0 10%;
+  padding: 16px 24px;
+  border-left: 4px solid #00ff66;
+  color: #b5ffcc;
+  font-family: 'Fira Mono', monospace;
+  background: #111;
+  text-shadow: 0 0 2px #0f0;
+  font-size: 1.1rem;
+}
+.changelog-entry strong {
+  color: #73ff9c;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+.changelog-entry ul {
+  margin-top: 10px;
+  text-align: left;
+}
+.changelog-entry li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* HEADER STYLING */
+h1 {
+  font-size: 2.8rem;
+  color: #00ff66;
+  font-family: 'Fira Mono', monospace;
+  text-shadow: 0 0 3px #0f0, 0 0 8px #090;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* SUBHEADINGS (h2) */
+h2 {
+  font-size: 2rem;
+  color: #ff3860;
+  font-family: 'Fira Mono', monospace;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  text-align: left;
+  text-shadow: 0 0 4px #900, 0 0 8px #f00;
+}
+
+/* ANNOUNCEMENT TEXT */
+.announcement-section p {
+  font-size: 1.1rem;
+  font-family: 'Fira Mono', monospace;
+  color: #b6fcb6;
+  margin-bottom: 20px;
+  text-shadow: 0 0 1px #0f0;
+  line-height: 1.8;
+}
+.announcement-section p a {
+  color: #00ffcc;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.announcement-section p a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 3px #0ff, 0 0 5px #0ff;
+}
