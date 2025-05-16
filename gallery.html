@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ash Lotus Gallery</title>
+  <link rel="stylesheet" href="css/gallery.css" />
+</head>
+<body>
+
+  <!-- Hover zone + Nav -->
+  <div class="hover-zone"></div>
+  <nav class="top-nav" id="top-nav">
+    <div class="nav-avatar">
+      <img src="images/avatar.png" alt="Avatar" />
+      <span>CuongT.Modwork</span>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="ash-lotus.html">Ash Lotus</a>
+    <a href="install.html">Install</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <!-- Vault Boy -->
+  <div class="vaultboy-wrapper">
+    <img src="images/vaultboy-up.png" alt="Vault Boy pointing up" class="vaultboy-icon" />
+  </div>
+
+  <main class="gallery">
+    <h2>Ash Lotus – Gallery</h2>
+    <p class="gallery-intro">
+      Preview Screenshots, visual showcases and posters submitted from Ash Lotus Modlist.
+    </p>
+
+    <div class="container">
+      <!-- Full-size views -->
+      <div class="full-view" id="img-1"><figure><img src="images/gallery1.png" alt="Gallery 1" /></figure></div>
+      <div class="full-view" id="img-2"><figure><img src="images/gallery2.png" alt="Gallery 2" /></figure></div>
+      <div class="full-view" id="img-3"><figure><img src="images/gallery3.png" alt="Gallery 3" /></figure></div>
+      <div class="full-view" id="img-4"><figure><img src="images/gallery4.png" alt="Gallery 4" /></figure></div>
+      <div class="full-view" id="img-5"><figure><img src="images/gallery5.png" alt="Gallery 5" /></figure></div>
+      <div class="full-view" id="img-6"><figure><img src="images/gallery6.png" alt="Gallery 6" /></figure></div>
+      <div class="full-view" id="img-7"><figure><img src="images/gallery7.png" alt="Gallery 7" /></figure></div>
+      <div class="full-view" id="img-8"><figure><img src="images/gallery8.png" alt="Gallery 8" /></figure></div>
+
+      <!-- Thumbnail preview -->
+      <div class="preview-list">
+        <a href="#img-1"><img src="images/gallery1.png" alt="Preview 1" /></a>
+        <a href="#img-2"><img src="images/gallery2.png" alt="Preview 2" /></a>
+        <a href="#img-3"><img src="images/gallery3.png" alt="Preview 3" /></a>
+        <a href="#img-4"><img src="images/gallery4.png" alt="Preview 4" /></a>
+        <a href="#img-5"><img src="images/gallery5.png" alt="Preview 5" /></a>
+        <a href="#img-6"><img src="images/gallery6.png" alt="Preview 6" /></a>
+        <a href="#img-7"><img src="images/gallery7.png" alt="Preview 7" /></a>
+        <a href="#img-8"><img src="images/gallery8.png" alt="Preview 8" /></a>
+      </div>
+
+      <!-- Loader bar -->
+      <div class="loader-bar">
+        <div class="progress-bar"><div class="progress-line"></div></div>
+        <div class="loader-text">Loaded</div>
+      </div>
+    </div>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+      <h3>Submit Your Screenshots</h3>
+      <p>
+        Share your in-game captures from the <strong>Ash Lotus</strong> modlist! Submit your screenshots here —
+        they will be reviewed and, once approved, featured on our
+        <a href="https://discord.gg/tbS9VAEchj" target="_blank">Discord</a>,
+        <a href="https://www.nexusmods.com/fallout4/mods/93620" target="_blank">Nexus</a>, and
+        saved in our
+        <a href="https://github.com/CuongMe/ash-lotus-modlist/blob/main/README.md" target="_blank">GitHub repository</a>.
+      </p>
+
+      <form name="screenshot-upload" method="POST" data-netlify="true" enctype="multipart/form-data" class="upload-form">
+        <input type="hidden" name="form-name" value="screenshot-upload" />
+        
+        <label class="file-label">
+          Upload Screenshot
+          <input type="file" name="screenshot" accept="image/*" required />
+        </label>
+        <p id="uploaded-file-name" class="uploaded-name"></p>
+
+        <input type="text" name="username" placeholder="Your name (optional)" />
+        <textarea name="note" placeholder="Message or caption (optional)"></textarea>
+
+        <!-- Warnings -->
+        <div class="form-warnings">
+          <p class="file-size-warning">⚠️ Max file size: <strong>10MB</strong></p>
+          <p class="submission-limit-warning hidden">⚠️ Upload limit reached. Please try again next month.</p>
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+        <div class="upload-success hidden">
+        ✅ Your screenshot was submitted successfully!
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 CuongT.Modwork | Powered by Netlify<br />
+    <small>
+      This is a fan-made project. Fallout, Vault Boy, and related trademarks are owned by Bethesda Softworks. No affiliation or endorsement implied.
+    </small>
+  </footer>
+  <script src="js/script.js" defer></script>
+</body>
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('cuongtmodwork', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Donate',
+    'floating-chat.donateButton.background-color': '#323842',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+</html>

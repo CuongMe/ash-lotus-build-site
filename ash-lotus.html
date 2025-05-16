@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ash Lotus – Fallout 4 Modlist</title>
+  <link rel="stylesheet" href="css/ash-lotus.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Invisible hover zone for nav -->
+  <div class="hover-zone"></div>
+
+  <!-- Auto‑hiding nav bar -->
+  <nav id="top-nav" class="top-nav">
+    <div class="nav-avatar">
+      <img src="images/avatar.png" alt="Avatar" />
+      <span>CuongT.Modwork</span>
+    </div>
+    <a href="index.html">Home</a>
+    <a class="active" href="ash-lotus.html">Ash Lotus</a>
+    <a href="install.html">Install</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <!-- Vault Boy icon -->
+  <div class="vaultboy-wrapper">
+    <img src="images/vaultboy-up.png" alt="Vault Boy pointing up" class="vaultboy-icon" />
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="announcement-section container">
+      <h1>ASH LOTUS – THE EXPERIENCE</h1>
+      <p><strong>Ash Lotus</strong> is not just a modlist. It’s a complete reimagining of Fallout 4 – combining survival intensity, cinematic visuals, faction-driven storytelling, and immersive realism.</p>
+
+      <h2>📂 Ash Lotus Full Modlist</h2>
+      <p>The list below is dynamically loaded and grouped by categories. Click each section to expand or collapse its contents.</p>
+      <div id="parsedModlist" class="accordion-container">Loading modlist...</div>
+    <section class="update-section">
+      <h2 class="update-title">
+      <span class="icon">📜</span> Latest Update & Changelog
+    </h2>
+    <button class="collapsible-btn" id="changelogToggle">
+      <i class="fa fa-wrench"></i> View Changelog v1.2.0
+    </button>
+    <div class="collapsible-content" id="changelogContent">
+      <div class="changelog-entry">
+        <strong>🛠️ Changelog v1.2.0:</strong>
+        <ul>
+          <li>Added missing facegen for America Rising 2 and South of the Sea.</li>
+          <li>Implemented root installation for mods like F4SE, ReShade Preset, xSE Plugin.</li>
+          <li>Now requires Root Builder.</li>
+        </ul>
+    </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 CuongT.Modwork | Powered by Netlify
+    <p>
+      This is a fan-made project. Fallout, Vault Boy, and related trademarks are owned by Bethesda Softworks. No affiliation or endorsement implied.
+    </p>
+  </footer>
+
+  <!-- JS File -->
+  <script src="js/ash-lotus.js"></script>
+</body>
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('cuongtmodwork', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Donate',
+    'floating-chat.donateButton.background-color': '#323842',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+</html>
